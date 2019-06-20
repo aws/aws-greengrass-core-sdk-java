@@ -76,7 +76,7 @@ For Greengrass, follow the steps below.
 *   Copy `GreengrassJavaSDK-1.3.jar` to `libs` folder.
 *   Example `build.gradle` file for Greengrass function looks like the following. You may add additional dependencies as necessary for your function.  
 
-    <div>`apply plugin: 'java'  
+    ```java  
 
     repositories {  
         mavenCentral()  
@@ -101,7 +101,7 @@ For Greengrass, follow the steps below.
 
     build.dependsOn buildZip  
 
-    `</div>
+    ```
 
 *   Place your lambda function under `src` folder.
 *   Run `gradle build`
@@ -116,23 +116,27 @@ Your _System.out.println_ operation will be logged as INFO. A _System.err.printl
 From GGC version 1.5.0, you can send binary data with the SDK. However, in order to make a lambda function be able to handle binary payload. You need to do the following:
 
 *   Make sure to choose "binary" input payload type in lamba configuration page in Greengrass condole and then do a deployment. Your lambda function will be marked as a "binary" lambda by GGC.
-*   Make sure your lambda handler signature is one of the following:`  
-    * void (InputStream, OutputStream, Context)  
-    * void (InputStream, OutputStream)  
-    * void (OutputStream, Context)  
-    * void (InputStream, Context)  
-    * void (InputStream)  
-    * void (OutputStream)`
+*   Make sure your lambda handler signature is one of the following:
+    ```java  
+    void (InputStream, OutputStream, Context)  
+    void (InputStream, OutputStream)  
+    void (OutputStream, Context)  
+    void (InputStream, Context)  
+    void (InputStream)  
+    void (OutputStream)
+    ```
 
 ## Supported Function Signatures
 
 In addition to the function signatures mentioned above, there are also more supported function signatures being introduced:
 
-*   `Supported "json" function handler signatures:  
-    * Anything (Context)  
-    * Anything (AlmostAnything, Context)  
-    * Anything (AlmostAnything)  
-    * Anything ()`
+Supported "json" function handler signatures:
+```java
+    Anything (Context)  
+    Anything (AlmostAnything, Context)  
+    Anything (AlmostAnything)  
+    Anything ()
+```
 
 ## Handler Overload Resolution
 
