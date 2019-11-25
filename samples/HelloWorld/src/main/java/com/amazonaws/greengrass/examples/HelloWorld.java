@@ -36,7 +36,10 @@ public class HelloWorld {
 class PublishHelloWorld extends TimerTask {
     private IotDataClient iotDataClient = new IotDataClient();
     private String publishMessage = String.format("Hello world! Sent from Greengrass Core running on platform: %s-%s using Java", System.getProperty("os.name"), System.getProperty("os.version"));
-    private PublishRequest publishRequest = new PublishRequest().withTopic("hello/world").withPayload(ByteBuffer.wrap(String.format("{\"message\":\"%s\"}", publishMessage).getBytes()));
+    private PublishRequest publishRequest = new PublishRequest()
+            .withTopic("hello/world")
+            .withPayload(ByteBuffer.wrap(String.format("{\"message\":\"%s\"}", publishMessage).getBytes()))
+            .withQueueFullPolicy(QueueFullPolicy.AllOrException);
 
     public void run() {
         try {

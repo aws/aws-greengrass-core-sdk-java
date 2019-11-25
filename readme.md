@@ -6,6 +6,10 @@ The **AWS Greengrass Core SDK for Java** enables Java developers to develop Lamb
 
 This document provides instructions for preparing your Greengrass Core environment to run Lambda functions written in Java. It also includes examples on how to develop a Lambda function in Java as well as packaging and running an example Hello World file in Java for your Greengrass core.
 
+## Changes to 1.4.0
+
+*   SDK supports StreamManager client.
+
 ## Changes to 1.3.1
 
 *   Improved log level granularity.

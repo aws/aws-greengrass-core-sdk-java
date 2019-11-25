@@ -1,0 +1,12 @@
+com.amazonaws.greengrass.javasdk
+com.amazonaws.greengrass.javasdk.model
+com.amazonaws.greengrass.streammanager.client
+com.amazonaws.greengrass.streammanager.client.codec
+com.amazonaws.greengrass.streammanager.client.config
+com.amazonaws.greengrass.streammanager.client.connection
+com.amazonaws.greengrass.streammanager.client.exception
+com.amazonaws.greengrass.streammanager.client.logging
+com.amazonaws.greengrass.streammanager.client.response
+com.amazonaws.greengrass.streammanager.client.version
+com.amazonaws.greengrass.streammanager.model
+com.amazonaws.greengrass.streammanager.model.export
