@@ -38,7 +38,7 @@ The environment where Greengrass is running on needs to be able to run Java 8 pa
 ## Getting Started - Hello World
 
 *   Copy `samples/HelloWorld` folder to your workspace.
-*   Create `libs` folder within `HelloWorld` folder and copy `GreengrassJavaSDK-1.3.jar` file from `sdk` folder into the `libs` folder.
+*   Create `libs` folder within `HelloWorld` folder and copy `GreengrassJavaSDK-1.0.jar` file from `sdk` folder into the `libs` folder.
 *   Run `gradle build`
 *   You should see a `HelloWorld.zip` in `build/distributions` folder.
 *   Go to AWS Lambda Console.
@@ -77,7 +77,7 @@ You will need to download Gradle. For instructions, go to the gradle website, [h
 For Greengrass, follow the steps below.
 
 *   Create `libs` folder.
-*   Copy `GreengrassJavaSDK-1.3.jar` to `libs` folder.
+*   Copy `GreengrassJavaSDK-1.0.jar` to `libs` folder.
 *   Example `build.gradle` file for Greengrass function looks like the following. You may add additional dependencies as necessary for your function.  
 
     ```java  
