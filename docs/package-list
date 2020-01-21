@@ -10,3 +10,4 @@ com.amazonaws.greengrass.streammanager.client.response
 com.amazonaws.greengrass.streammanager.client.version
 com.amazonaws.greengrass.streammanager.model
 com.amazonaws.greengrass.streammanager.model.export
+com.amazonaws.greengrass.streammanager.util

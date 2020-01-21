@@ -6,6 +6,10 @@ The **AWS Greengrass Core SDK for Java** enables Java developers to develop Lamb
 
 This document provides instructions for preparing your Greengrass Core environment to run Lambda functions written in Java. It also includes examples on how to develop a Lambda function in Java as well as packaging and running an example Hello World file in Java for your Greengrass core.
 
+## Changes to 1.4.1
+
+*   StreamManager client sets socket option `TCP_NODELAY=true` to prevent multi-millisecond delays when writing small messages.
+
 ## Changes to 1.4.0
 
 *   SDK supports StreamManager client.
@@ -38,7 +42,7 @@ The environment where Greengrass is running on needs to be able to run Java 8 pa
 ## Getting Started - Hello World
 
 *   Copy `samples/HelloWorld` folder to your workspace.
-*   Create `libs` folder within `HelloWorld` folder and copy `GreengrassJavaSDK-1.0.jar` file from `sdk` folder into the `libs` folder.
+*   Create `libs` folder within `HelloWorld` folder and copy `GreengrassJavaSDK.jar` file from `sdk` folder into the `libs` folder.
 *   Run `gradle build`
 *   You should see a `HelloWorld.zip` in `build/distributions` folder.
 *   Go to AWS Lambda Console.
@@ -77,7 +81,7 @@ You will need to download Gradle. For instructions, go to the gradle website, [h
 For Greengrass, follow the steps below.
 
 *   Create `libs` folder.
-*   Copy `GreengrassJavaSDK-1.0.jar` to `libs` folder.
+*   Copy `GreengrassJavaSDK.jar` to `libs` folder.
 *   Example `build.gradle` file for Greengrass function looks like the following. You may add additional dependencies as necessary for your function.  
 
     ```java  
