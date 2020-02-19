@@ -161,31 +161,10 @@ In Greengrass, you can send a context object in a JSON format to be passed to an
 
 ## Compatibility
 
-As new features are added to AWS Greengrass, previous versions of the Greengrass SDK will be incompatible with newer versions of the AWS Greengrass core. The following table lists the compatible SDKs for all GGC releases.
+As new features are added to AWS IoT Greengrass, newer versions of the AWS IoT Greengrass SDK may be incompatible with older versions of the AWS IoT Greengrass core. The following table lists the compatible SDKs for all GGC releases.
 
-
-<table style="width:50%">
-
-<tbody>
-
-<tr>
-
-<th>GGC Version</th>
-
-<th>Compatible SDK Versions</th>
-
-</tr>
-
-<tr>
-
-<td>1.0.x-1.6.x</td>
-
-<td>1.0.x-1.2.x</td>
-
-</tr>
-
-<tr>
-
-<td>1.7.x</td>
-
-<td>1.0.x-1.3.x</td>
+| GGC Version   | Compatible SDK Versions |
+| ------------- | ------------- |
+| 1.0.x-1.6.x   | 1.0.x         |
+| 1.7.x-1.9.x   | 1.0.x-1.3.x   |
+| 1.10.x        | 1.0.x-1.4.x   |
