@@ -19,7 +19,6 @@ package com.amazonaws.greengrass.examples;
 
 import com.amazonaws.greengrass.javasdk.GreengrassClientBuilder;
 import com.amazonaws.greengrass.streammanager.client.StreamManagerClient;
-import com.amazonaws.greengrass.streammanager.client.exception.ResourceNotFoundException;
 import com.amazonaws.greengrass.streammanager.client.exception.StreamManagerException;
 import com.amazonaws.greengrass.streammanager.model.MessageStreamDefinition;
 import com.amazonaws.greengrass.streammanager.model.ReadMessagesOptions;
@@ -39,21 +38,26 @@ public class StreamManagerKinesis {
      * Empty handler because this will be a pinned lambda
      */
     public String handleRequest(Object input, Context context) {
-        return "";
+        return "Hello from java";
     }
 
-    public static void main(String[] args) throws Exception {
+    static {
         try (final StreamManagerClient client = GreengrassClientBuilder.streamManagerClient().build()) {
             // Try deleting the stream (if it exists) so that we have a fresh start
             try {
                 client.deleteMessageStream(STREAM_NAME);
-            } catch (ResourceNotFoundException ignored) {
+            } catch (StreamManagerException e) {
+                System.out.println(e.getMessage());
+                for(StackTraceElement element: e.getStackTrace()) {
+                    System.out.println(element);
+                }
             }
 
             final ExportDefinition exports = new ExportDefinition()
                     .withKinesis(new ArrayList<KinesisConfig>() {{
                         add(new KinesisConfig()
                                 .withIdentifier("KinesisExport" + STREAM_NAME)
+                                .withBatchSize(1L)
                                 .withKinesisStreamName(KINESIS_STREAM_NAME));
                     }});
 
@@ -83,7 +87,11 @@ public class StreamManagerKinesis {
                 client.appendMessage(STREAM_NAME, new byte[]{(byte) rand.nextInt(255)});
                 Thread.sleep(1000);
             }
-        } catch (StreamManagerException e) {
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            for(StackTraceElement element: e.getStackTrace()) {
+                System.out.println(element);
+            }
             // Properly handle exception
         }
     }

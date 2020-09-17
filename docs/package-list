@@ -7,7 +7,9 @@ com.amazonaws.greengrass.streammanager.client.connection
 com.amazonaws.greengrass.streammanager.client.exception
 com.amazonaws.greengrass.streammanager.client.logging
 com.amazonaws.greengrass.streammanager.client.response
+com.amazonaws.greengrass.streammanager.client.utils
 com.amazonaws.greengrass.streammanager.client.version
 com.amazonaws.greengrass.streammanager.model
 com.amazonaws.greengrass.streammanager.model.export
+com.amazonaws.greengrass.streammanager.model.sitewise
 com.amazonaws.greengrass.streammanager.util
