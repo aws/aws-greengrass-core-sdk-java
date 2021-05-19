@@ -45,7 +45,8 @@ The environment where Greengrass is running on needs to be able to run Java 8 pa
 ## Getting Started - Hello World
 
 *   Copy `samples/HelloWorld` folder to your workspace.
-*   Create `libs` folder within `HelloWorld` folder and copy `GreengrassJavaSDK.jar` file from `sdk` folder into the `libs` folder.
+*   Create `libs` folder within `HelloWorld` folder and copy `GreengrassJavaSDK.jar`/`GreengrassJavaSDK-Slim.jar` file from `sdk`/`slim-sdk` folder into 
+    the `libs` folder.
 *   Run `gradle build`
 *   You should see a `HelloWorld.zip` in `build/distributions` folder.
 *   Go to AWS Lambda Console.
@@ -81,10 +82,14 @@ You will need to download Gradle. For instructions, go to the gradle website, [h
 
 ### Including Greengrass Core SDK for Java with your function with Gradle
 
-For Greengrass, follow the steps below.
+Two types of jar files are provided. The `GreengrassJavaSDK-Slim.jar` in `sdk-slim` directory is a jar file with 
+no dependencies built in. This is the recommended way to consume Greengrass Core SDK. `GreengrassJavaSDK.jar` in 
+`sdk` directory is provided for backward compatibility for developers already using it.
+
+For `GreengrassJavaSDK-Slim.jar`, follow the example below:
 
 *   Create `libs` folder.
-*   Copy `GreengrassJavaSDK.jar` to `libs` folder.
+*   Copy `GreengrassJavaSDK-Slim.jar` to `libs` folder.
 *   Example `build.gradle` file for Greengrass function looks like the following. You may add additional dependencies as necessary for your function.  
 
     ```java  
@@ -93,12 +98,16 @@ For Greengrass, follow the steps below.
         mavenCentral()  
     }  
 
-    dependencies {  
-        compile 'com.fasterxml.jackson.core:jackson-core:2.8.8'  
-        compile 'com.fasterxml.jackson.core:jackson-databind:2.8.8'  
-        compile 'org.apache.httpcomponents:httpclient:4.5.3'  
-        compile 'com.amazonaws:aws-lambda-java-core:1.1.0'  
-        compile 'com.amazonaws:aws-java-sdk-core:1.11.178'  
+    dependencies {
+        compile 'com.fasterxml.jackson.core:jackson-annotations:2.12.3'
+        compile 'com.fasterxml.jackson.core:jackson-core:2.12.3'
+        compile 'com.fasterxml.jackson.core:jackson-databind:2.12.3'
+        compile 'com.fasterxml.jackson.dataformat:jackson-dataformat-cbor:2.12.3'
+        compile 'org.apache.httpcomponents:httpclient:4.5.13'
+        compile 'org.apache.httpcomponents:httpcore:4.4.14'
+        compile 'com.amazonaws:aws-lambda-java-core:1.1.0'
+        compile 'javax.validation:validation-api:1.0.0.GA'
+        compile 'org.slf4j:slf4j-api:1.7.0'
         compile fileTree(dir: 'libs', include: ['*.jar'])  
     }  
 
